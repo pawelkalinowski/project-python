@@ -23,7 +23,10 @@ THE SOFTWARE.
 
 """
 
-def multiples3and5(number): # define function with NUMBER parameter
+def summultiples3and5(number): # define function with NUMBER parameter
+
+# This functions sums all multiples of 3 and 5 below NUMBER
+# Solves Euler Project problem no. 1 
 
 
 #1. Check all numbers below NUMBER parameter for multiples of 3 and 5
