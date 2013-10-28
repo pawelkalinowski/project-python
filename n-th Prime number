@@ -1,0 +1,65 @@
+"""
+The MIT License (MIT)
+
+Copyright (c) 2013 Pawel Kalinowski
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+"""
+
+
+def iseven(number): # defining function iseven with parameter 
+    if number == 2: # creating a special case; 2 is a prime
+        return -1
+    if number%2 != 0: # checking whether number is odd/even
+        return -1   # returning -1 when odd
+    else:
+        return 1    # returning 1 when even
+
+
+def isprime(number): # defining function isprime with parameter
+
+    divisors = []    # creating empty divisor list
+    for divisor in range(1,number+1): # loop with possible divisor values
+        divisors.append(number%divisor) # filling divisor list with output  
+    for check in range(1, number-1): # Defining range for checking divisor values i.e. everything except 1st    
+                                     # and last, as primes divide only with 1 and themselves.
+        if divisors[check] != 0:     # If there is any other value in defined range equal to 0,
+            continue                 # this means that the number is not a prime.
+        else:
+            return -1                # returning -1 when the number is not a prime
+
+
+
+    return number                    # returning number if it is prime
+
+
+def nprime(n):                       # defining nprime function with parameter
+
+    counter = 2                      # the number which we will check first
+    primecounter = 0                 # resetting the counter for prime number
+
+    while primecounter<n:            # loop; check whether we already checked all the numbers
+
+        if isprime(counter) != -1:   # using isprime function
+            primecounter = primecounter + 1 # if the number is a prime we increment the primecounter
+            counter = counter + 1    # incrementing the number for next check with isprime function
+        else:
+            counter = counter + 1    
+    return counter-1                 # returning result: n-th prime number
