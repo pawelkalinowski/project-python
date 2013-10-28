@@ -31,6 +31,7 @@ def multiples3and5(number): # define function with NUMBER parameter
 #2. Save results in 2 list
 #3. Add all results in 2 list
 #4. Print result
+# NOTE: This code doublecounts the multiples
 
 
 
