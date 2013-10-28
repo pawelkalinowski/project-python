@@ -61,10 +61,8 @@ def multiples3and5(number): # define function with NUMBER parameter
     print 'Doublecounting of multiples', sumof3and5   # print result
 
 
-    inmultiples3 = set(multiples3)                              # merge both lists and remove duplicates
-    inmultiples5 = set(multiples5)
-    in3andnot5 = inmultiples3 - inmultiples5
-    result = multiples5 + list(in3andnot5)
+    # merge both lists and remove duplicates
+    result = list(set(multiples5) | set(multiples3))
     nodoublecounting = sum(result)
     print 'No doublecounting of multiples', nodoublecounting
 
