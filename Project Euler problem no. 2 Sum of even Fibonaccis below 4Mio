@@ -1,0 +1,66 @@
+"""
+
+The MIT License (MIT)
+
+Copyright (c) 2013 Pawel Kalinowski
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+"""
+
+
+
+
+
+
+def memoize(computation):             # introducing memoize function to speed up
+   cache = {}
+   def cached_computation(*args):
+      if args in cache:
+         return cache[args]
+      else:
+         result = computation(*args)
+         cache[args] = result
+         return result
+
+   return cached_computation
+
+
+@memoize
+
+def fibonacci (number):               # fibonacci numbers calculated recursivly
+
+    if number == 0:                   # base case no. 1
+        return 0
+    if number == 1:                   # base case no. 2
+        return 1
+    else:
+        return fibonacci(number-2)+fibonacci(number-1) # recursion based on two base scenarios
+
+
+w = 0 # initalize variable
+x = 0 # initialize variable
+while (x<10000): # loop 
+    if fibonacci(x)%2 == 0 and fibonacci(x)<10000: # checking whether fibo is even and below certain number
+        w = w + fibonacci(x) # adding up Fibonaccis
+    x = x + 1 # incrementing x variable for the loop
+
+print 'Result', w # print result
+
+
