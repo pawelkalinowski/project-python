@@ -30,7 +30,7 @@ THE SOFTWARE.
 
 
 def memoize(computation):             # introducing memoize function to speed up
-   cache = {}
+   cache = {}                         # anyway it will be pretty slow as this is exponential complexity
    def cached_computation(*args):
       if args in cache:
          return cache[args]
